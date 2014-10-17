@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>XDLINUX</title>
+  
+  <link rel="stylesheet" type="text/css" media="screen" href="{{ url_for('static',filename='css/bootstrap.min.css') }}" >
+  <link rel="stylesheet" type="text/css" media="screen" href="{{ url_for('static',filename='css/navbar.css')}}">
+  <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon" />
+  <link rel="stylesheet" type="text/css" media="screen" href="{{ url_for('static',filename='css/font-awesome.min.css')}}">
+  <link rel="stylesheet" type="text/css" media="screen" href="{{ url_for('static',filename='css/normalize.css')}}">
+  <link rel="stylesheet" href="{{ url_for('static',filename='css/main.css')}}">
+  <script src="{{ url_for('static', filename='js/modernizr-2.6.2.min.js')}}"></script>
+
+<style>
+#warp {
+  position: absolute;
+  width: 400px;
+  height: 200px;
+  left: 50%;
+  top: 50%;
+  margin-left: -200px;
+  margin-top: -100px;
+  border:1px solid #00F;
+}
+</style>
+
+
+</head>
+<body>
+ 
+<nav class="navbar navbar-default navbar-fixed-top" role="navigation" style="background:#11c566">
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    <a class="navbar-brand" href="/">XDLinux</a>
+  </div>
+
+
+  <div class="collapse navbar-collapse" id="navbar-collapse" style="background:#11c566">
+    <ul class="nav navbar-nav">
+        <!--<li class="active"><a href="ftp://linux.xidian.edu.cn/">软件源</a></li>-->
+      <li><a href="http://ftp.xdlinux.info/" style="background:#11c566">软件源</a></li>
+      <li><a href="/bbs/" style="background:#11c566">讨论</a></li>
+      <li><a href="/wiki/" style="background:#11c566">WIKI</a></li>
+      <li><a href="/vnstat/" style="background:#11c566">图书漂流</a></li>
+      <li><a href="http://cloud.xdlinux.info/" style="background:#11c566">私有云</a></li>
+      <!-- <li><a href="http://book.xdlinux.info/" style="background:#11c566"></a></li> -->
+    </ul>
+  
+    <ul class="nav navbar-nav navbar-right">
+      {%if not session.user %}
+      <li class="pure-menu-selected" ><a href="/index/login" style="background:#11c566">登录</a></li>
+      {% endif %}
+    {%if session.user %}
+      <li class="pure-menu-selected" ><a href="/index/post/add" style="background:#11c566">Add Post</a></li>
+      <li class="pure-menu-selected"><a href="/index/logout" style="background:#11c566">Logout</a></li>  
+     {% endif %}
+    </ul>
+  </div>
+
+  <div class="navbar-right col menu">
+    <span class="navbar-right item item-news" >{{ hitokoto() }}</span>
+  </div>
+  
+</nav>
+    
+
+
+{% block content %}{% endblock %}
+  
+{% block script %}{% endblock %}
+</body>
+</html>
+
+
+    

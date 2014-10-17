@@ -1,0 +1,41 @@
+﻿{% extends "base.html" %}
+{% block content %}
+
+
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<div id="warp content-container">
+  
+  <div class="go-up">
+    <i class="icon-arrow-up"></i>
+  </div>
+
+  <div id="intro warp" class="section">
+    <div id="centerme warp">
+      <div class="full" style="margin-bottom: 100px;">
+        <span class="title">社区动态</span>
+      </div>
+
+      <div class="col" style="margin-bottom: 50px; margin-top: -20px;">
+        {% for post in posts %}
+        <span class="twist small">{{ getDay(post.created_date) }}/{{ getMonth(post.created_date) }} 20{{ getYear(post.created_date) }}</span><br /><a href="/index/post/{{ post._id }}" target="_blank">{{post.title }}</a> 
+        {%if session.user %}
+        <a href="/index/post/edit/{{ post._id }}">Edit</a> 
+        {% endif %}
+        <br /><br />
+        {% endfor %}
+        <div class="clear"></div>
+      </div>
+
+    </div>
+  </div>
+ 
+</div>
+ 
+
+{% endblock %}
+

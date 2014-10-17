@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+{% block content %}
+
+<style>
+   body{ text-align: center; }
+   #divcss5{
+   	margin: 0 auto
+   }
+</style>
+<br>
+<br>
+<br>
+
+
+
+<div id="warp content-container">
+  
+  <div class="go-up">
+    <i class="icon-arrow-up"></i>
+  </div>
+
+  <div id=" intro warp" class="section">
+  	
+    <div id="centerme warp">
+
+      <div class="full" style="margin-bottom: 100px;">
+
+ 		{% if current_user %}
+  		<a class="title" href="/index/post/edit/{{ post.title }}">
+  			<span class="title">
+  				{{ post.title|safe }}
+  			</span>
+  		</a>
+  		{% else %}
+  		<span class="title">
+  			{{ post.title|safe }}
+  		</span>
+  		{% endif %}
+
+      </div>
+  <!-- </center> -->
+<!-- <center> -->
+      <div  class="col" >
+      	<center>
+      		<span class="twist small">{{ formatDate2(post.created_date) }}</span><br />{{ post.content|safe }}<br /><br />
+      	</cneter>
+      	<div class="clear">
+    
+      	</div>
+      </div>
+      <!-- </center> -->
+
+    </div>
+
+  </div>
+ 
+</div>
+
+
+{% endblock %}
