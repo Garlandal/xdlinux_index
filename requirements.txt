@@ -2,4 +2,3 @@ flask==0.10.1
 flask-mongoengine==
 flask-script==
 flask-admin ?
-flask-oauthlib==
